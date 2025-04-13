@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -18,9 +19,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -43,6 +45,33 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => 'string',
         ];
+    }
+
+    /**
+     * Set the user's username based on the email
+     * 
+     * @param string $value
+     * @return void
+     */
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['Email'] = $value;
+        
+        if (empty($this->attributes['username'])) {
+            $this->attributes['username'] = Str::before($value, '@');
+        }
+    }
+
+    /**
+     * Check if the user has the given role.
+     * 
+     * @param string $roleName
+     * @return bool
+     */
+    public function hasRole(string $roleName): bool
+    {
+        return $this->role === $roleName;
     }
 }
