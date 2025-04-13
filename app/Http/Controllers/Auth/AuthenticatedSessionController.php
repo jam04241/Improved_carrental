@@ -37,7 +37,7 @@ class AuthenticatedSessionController extends Controller
                 $request->session()->regenerateToken();
                 return redirect()->route('login')->withErrors(['error' => 'Your account is banned. Please contact support.']);
             }
-            return redirect()->intended(route('customer.home', absolute: false));
+            return redirect()->intended(route('home'));
         } elseif ($user->role === 'Employee') {
             return redirect()->intended(route('employee.dashboard', absolute: false));
         } else {

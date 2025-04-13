@@ -11,13 +11,16 @@
         @if (Route::has('login'))
         <nav class="flex space-x-8 uppercase font-semibold tracking-wide">
             @auth
-                <a href="{{ route('userpage') }}" class="hover:text-gray-700">Home</a>
+                <a href="{{ route('home') }}" class="hover:text-gray-700">Home</a>
                 <a href="{{ route('cars') }}" class="hover:text-gray-700">Cars</a>
                 <a href="{{ route('booking') }}" class="hover:text-gray-700">Booking</a>
                 <a href="#" class="hover:text-gray-700">Contacts</a>
-                <a href="{{ route('logout') }}" class="hover:text-gray-700">
-                    <img src="{{asset('assets/shelby.jpg')}}" alt="Shelby" class="h-10 rounded-xl">
-                </a>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="hover:text-gray-700 focus:outline-none">
+                        <img src="{{asset('assets/shelby.jpg')}}" alt="Shelby" class="h-10 rounded-xl">
+                    </button>
+                </form>
             @else
 
             @endif

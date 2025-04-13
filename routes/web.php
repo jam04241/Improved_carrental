@@ -3,10 +3,19 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\GuestController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Landing Route (Handles redirection based on login role)
 Route::get('/', function () {
+    if (Auth::check()) {
+        $user = Auth::user();
+        if ($user->role === 'Customer') {
+            return view('customer.home');
+        } elseif ($user->role === 'Employee') {
+            return redirect()->route('employee.dashboard');
+        }
+    }
     return view('guest.home');
 })->name('home');
 
@@ -21,12 +30,12 @@ Route::middleware('guest')->group(function() {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // Customer Specific Routes
-    Route::middleware('role:Customer')->prefix('customer')->name('customer.')->group(function () {
-        Route::get('/home', [CustomerController::class, 'home'])->name('home');
+    Route::middleware('checkRole:Customer')->prefix('customer')->name('customer.')->group(function () {
+        Route::get('../', [CustomerController::class, 'home'])->name('home');
     });
 
     // Employee Specific Routes
-    Route::middleware('role:Employee')->prefix('employee')->name('employee.')->group(function () {
+    Route::middleware('checkRole:Employee')->prefix('employee')->name('employee.')->group(function () {
         Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
     });
 
