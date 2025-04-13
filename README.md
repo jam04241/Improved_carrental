@@ -1,13 +1,13 @@
 <p align="center">
-  <a href="https://github.com/jhnbrd/bmp-car-rental" target="_blank">
-    <img src="public/assets/bmp_logo.png" alt="BMP Car Rental Logo" width="200">
-  </a>
+  <a href="https://github.com/jhnbrd/bmp-car-rental" target="_blank">
+    <img src="public/assets/bmp_logo.png" alt="BMP Car Rental Logo" width="200">
+  </a>
 </p>
 
 <h1 align="center">BMP Car Rental Web Application</h1>
 
 <p align="center">
-  A final project requirement for the IT9A Laravel course, built with Laravel 12, Breeze, Blade, and Tailwind CSS.
+  A final project requirement for the IT9A Laravel course, built with Laravel 12, Breeze, Blade, and Tailwind CSS.
 </p>
 
 ## About BMP Car Rental
@@ -16,29 +16,35 @@ BMP Car Rental is a web application designed to allow users to browse, book, and
 
 Key features implemented in this application include:
 
-- **User Authentication:** Secure user registration and login powered by Laravel Breeze.
-- **Car Listings:** Display of available cars with relevant details (e.g., make, model, price, availability).
-- **Booking System:** Functionality for users to select rental dates and book cars.
-- **Contact Page:** A contact form or information for users to get in touch.
-- **Role-Based Access Control:** Implementation of different user roles (e.g., customer, employee) with specific access permissions.
-- **Modern User Interface:** A responsive and user-friendly design built with Tailwind CSS and Blade templates.
+-   **User Authentication:** Secure user registration and login powered by Laravel Breeze.
+-   **Car Listings:** Display of available cars with relevant details (e.g., make, model, price, availability).
+-   **Booking System:** Functionality for users to select rental dates and book cars.
+-   **Contact Page:** A contact form or information for users to get in touch.
+-   **Role-Based Access Control:** Implementation of different user roles (e.g., customer, employee) with specific access permissions.
+-   **Modern User Interface:** A responsive and user-friendly design built with Tailwind CSS and Blade templates.
 
 ## Technologies Used
 
 This project utilizes the following key technologies:
 
-- **[Laravel 12](https://laravel.com/)**: The robust PHP web application framework.
-- **[Laravel Breeze](https://laravel.com/docs/12.x/starter-kits#laravel-breeze)**: Minimal authentication scaffolding providing login, registration, email verification, and password reset features.
-- **[Blade Templating Engine](https://laravel.com/docs/12.x/blade)**: Laravel's simple yet powerful templating engine for creating dynamic views.
-- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework for rapid UI development.
+-   **[Laravel 12](https://laravel.com/)**: The robust PHP web application framework.
+-   **[Laravel Breeze](https://laravel.com/docs/12.x/starter-kits#laravel-breeze)**: Minimal authentication scaffolding providing login, registration, email verification, and password reset features.
+-   **[Blade Templating Engine](https://laravel.com/docs/12.x/blade)**: Laravel's simple yet powerful templating engine for creating dynamic views.
+-   **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework for rapid UI development.
+
+## Project Team
+
+-   John Rex Partoza - Frontend Developer: Responsible for designing and implementing the user interface of the application.
+-   Josh Andrei Magcalas - Frontend Developer:  Contributed to the user interface development, ensuring a smooth and responsive user experience.
+-   Jhianne Jose Berida - Backend Developer:  Developed the server-side logic, database interactions, and API endpoints using Laravel.
 
 ## Learning Resources
 
 During the development of this project, the following resources were invaluable:
 
-- **[Laravel Documentation](https://laravel.com/docs/12.x)**: The official and comprehensive Laravel documentation.
-- **[Laravel Bootcamp](https://bootcamp.laravel.com)**: A guided tutorial for building a modern Laravel application.
-- **[Laracasts](https://laracasts.com)**: A vast library of video tutorials on Laravel, PHP, and related technologies.
+-   **[Laravel Documentation](https://laravel.com/docs/12.x)**: The official and comprehensive Laravel documentation.
+-   **[Laravel Bootcamp](https://bootcamp.laravel.com)**: A guided tutorial for building a modern Laravel application.
+-   **[Laracasts](https://laracasts.com)**: A vast library of video tutorials on Laravel, PHP, and related technologies.
 
 ## Contributing
 
