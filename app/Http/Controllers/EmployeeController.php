@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 use App\Models\Customer;
+use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
@@ -25,7 +26,8 @@ class EmployeeController extends Controller
 
     public function employee_records(): View
     {
-        return view('employee.employee');
+        $employees = Employee::all();
+        return view('employee.employee', ['employees' => $employees]);
     }
 
     

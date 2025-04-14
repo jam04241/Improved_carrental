@@ -21,4 +21,9 @@ class Employee extends Model
     protected $casts = [
         
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
