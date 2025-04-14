@@ -30,13 +30,15 @@ Route::middleware('guest')->group(function() {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // Customer Specific Routes
-    Route::middleware('checkRole:Customer')->prefix('customer')->name('customer.')->group(function () {
+    Route::middleware('checkRole:Customer')->name('customer.')->group(function () {
         Route::get('../', [CustomerController::class, 'home'])->name('home');
     });
 
     // Employee Specific Routes
-    Route::middleware('checkRole:Employee')->prefix('employee')->name('employee.')->group(function () {
+    Route::middleware('checkRole:Employee')->name('employee.')->group(function () {
         Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
+        Route::get('/customers', [EmployeeController::class, 'customer_records'])->name('customer-records');
+        Route::get('/employees', [EmployeeController::class, 'employee_records'])->name('employee-records');
     });
 
 });

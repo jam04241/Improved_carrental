@@ -19,12 +19,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
     />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
       defer
     ></script>
     <script src="./assets/js/charts-lines.js" defer></script>
     <script src="./assets/js/charts-pie.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   </head>
   <body>
     <div
@@ -43,7 +46,7 @@
           <ul class="mt-6">
               <li class="relative px-6 py-3">
                   <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                      href="{{ url('/admin-dashboard') }}">
+                      href="{{ url('/dashboard') }}">
                       <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                           <path
@@ -162,7 +165,7 @@
               </li>
               <li class="relative px-6 py-3">
                   <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                      href="{{ url('/admin-customer_records') }}">
+                      href="{{ url('/customers') }}">
                       <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                           <path d="M12 11c2.21 0 4-1.79 4-4S14.21 3 12 3 8 4.79 8 7s1.79 4 4 4z"></path>
@@ -186,7 +189,7 @@
               </li>
               <li class="relative px-6 py-3">
                   <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="{{ url('/admin-employee') }}">
+                  href="{{ url('/employees') }}">
                       <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                           <path d="M5.121 17.804A6.5 6.5 0 0112 15.5a6.5 6.5 0 016.879 2.304"></path>
@@ -236,7 +239,7 @@
           <ul class="mt-6">
               <li class="relative px-6 py-3">
                   <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                      href="{{ url('/admin-dashboard') }}">
+                      href="{{ url('/dashboard') }}">
                       <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                           <path
@@ -355,7 +358,7 @@
               </li>
               <li class="relative px-6 py-3">
                   <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                      href="{{ url('/admin-customer_records') }}">
+                      href="{{ url('/customers') }}">
                       <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                           <path d="M12 11c2.21 0 4-1.79 4-4S14.21 3 12 3 8 4.79 8 7s1.79 4 4 4z"></path>
@@ -379,7 +382,7 @@
               </li>
               <li class="relative px-6 py-3">
                   <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="{{ url('/admin-employee') }}">
+                  href="{{ url('/employees') }}">
                       <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                           <path d="M5.121 17.804A6.5 6.5 0 0112 15.5a6.5 6.5 0 016.879 2.304"></path>
@@ -594,7 +597,7 @@
 
             // If no matching URL is found, default to the Dashboard
             if (!activeItem) {
-                activeItem = document.querySelector('.relative.px-6.py-3 a[href="/admin-dashboard"]'); // Adjust the href based on your route
+                activeItem = document.querySelector('.relative.px-6.py-3 a[href="/dashboard"]'); // Adjust the href based on your route
             }
 
             // Apply active class to the determined active item
