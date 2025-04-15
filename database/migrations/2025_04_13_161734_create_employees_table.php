@@ -3,9 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\User;
-use App\Models\Employee;
-use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
@@ -24,19 +21,19 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        $user = User::create([
-            'username' => 'admin',
-            'email' => 'admin@test.com',
-            'password' => Hash::make('bmpcars2025'),
-            'role' => 'Employee',
-        ]);
+        // $user = User::create([
+        //     'username' => 'admin',
+        //     'email' => 'admin@test.com',
+        //     'password' => Hash::make('bmpcars2025'),
+        //     'role' => 'Employee',
+        // ]);
 
-        Employee::create([
-            'first_name' => 'System',
-            'last_name' => 'Admin',
-            'user_id' => $user->id,
-            'role' => 'Admin',
-        ]);
+        // Employee::create([
+        //     'first_name' => 'System',
+        //     'last_name' => 'Admin',
+        //     'user_id' => $user->id,
+        //     'role' => 'Admin',
+        // ]);
         
     }
 
