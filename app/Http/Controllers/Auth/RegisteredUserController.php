@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class RegisteredUserController extends Controller
 {
@@ -56,6 +57,21 @@ class RegisteredUserController extends Controller
             DB::beginTransaction();
             DB::enableQueryLog();
 
+            // dd($request->province, $request->city, $request->barangay);
+
+            $provinceName = $this->fetchNameFromApi($request->province, 'provinces');
+            $cityName = $this->fetchNameFromApi($request->city, 'cities');
+            $barangayName = $this->fetchNameFromApi($request->barangay, 'barangays');
+
+            // dd($provinceName, $cityName, $barangayName);
+
+            if (!$provinceName || !$cityName || !$barangayName) {
+                DB::rollback();
+                Log::error('Failed to fetch location names from the API.');
+                Log::info(DB::getQueryLog());
+                return back()->withErrors(['error' => 'Registration failed. Could not verify location details.']);
+            }
+
             $username = Str::before($request->email, '@');
             $uploadedImage = $request->file('upload_img');
 
@@ -76,9 +92,9 @@ class RegisteredUserController extends Controller
                 'middle_name' => $request->middlename,
                 'last_name' => $request->lastname,
                 'user_id' => $user->id,
-                'province' => $request->province,
-                'city' => $request->city,
-                'barangay' => $request->barangay,
+                'province' => $provinceName,
+                'city' => $cityName,
+                'barangay' => $barangayName,
                 'address' => $request->address,
                 'phone_number' => $request->phone_number,
                 'driver_license_number' => $request->driver_license,
@@ -104,6 +120,38 @@ class RegisteredUserController extends Controller
             Log::error($e->getMessage());
             Log::info(DB::getQueryLog());
             return back()->withErrors(['error' => 'Registration failed. Please try again.']);
+        }
+    }
+
+    /**
+     * Fetches the name of a location (province, city, or barangay) from the PSGC API.
+     *
+     * @param string $code The PSGC code of the location.
+     * @return string|null The name of the location, or null if the API call fails.
+     */
+    private function fetchNameFromApi(string $code, string $endpoint): ?string
+    {
+        try {
+            $response = Http::get("https://psgc.gitlab.io/api/{$endpoint}/");
+
+            if ($response->successful()) {
+                $data = $response->json();
+                foreach ($data as $location) {
+                    // Add logging here to inspect each location's code
+                    Log::info("Checking {$endpoint}: Code from API: " . ($location['code'] ?? 'No Code') . ", Code from Request: " . $code);
+                    if (isset($location['code']) && $location['code'] === $code) {
+                        return $location['name'] ?? null;
+                    }
+                }
+                Log::warning("PSGC code '{$code}' not found in {$endpoint}.");
+                return null;
+            } else {
+                Log::error("PSGC API request failed for {$endpoint}. Status: {$response->status()}");
+                return null;
+            }
+        } catch (\Exception $e) {
+            Log::error("Error during PSGC API request for {$endpoint}: {$e->getMessage()}");
+            return null;
         }
     }
 }
