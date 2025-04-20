@@ -21,13 +21,19 @@ class EmployeeController extends Controller
     public function customer_records(): View
     {
         $customers = Customer::all();
-        return view('employee.customer_records', ['customers' => $customers]);
+        return view('employee.customer', ['customers' => $customers]);
     }
 
     public function employee_records(): View
     {
         $employees = Employee::all();
         return view('employee.employee', ['employees' => $employees]);
+    }
+
+    public function booking_management(): View
+    {
+        $bookings = Employee::all();
+        return view('employee.bookings', ['bookings' => $bookings]);
     }
 
     

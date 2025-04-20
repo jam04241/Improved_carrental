@@ -39,6 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
         Route::get('/customers', [EmployeeController::class, 'customer_records'])->name('customer-records');
         Route::get('/employees', [EmployeeController::class, 'employee_records'])->name('employee-records');
+        Route::get('/bookings', [EmployeeController::class, 'booking_management'])->name('booking-management');
     });
 
 });
