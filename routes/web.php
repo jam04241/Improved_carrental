@@ -24,6 +24,7 @@ Route::middleware('guest')->group(function() {
     Route::get('/cars', [GuestController::class, 'cars'])->name('cars');
     Route::get('/booking', [GuestController::class, 'booking'])->name('booking');
     Route::get('/contacts', [GuestController::class, 'contacts'])->name('contacts');
+    Route::get('/process', [GuestController::class, 'process'])->name('process');
 });
 
 // Authenticated User Routes
