@@ -45,59 +45,40 @@
                     <table class="min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                             <tr>
+                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3"> </th>
                                 <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Car Type</th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Available</th>
+                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Car Model</th>
                                 <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Brand</th>
+                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Seat Capacity</th>
+                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Car Transmission  </th>
+                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Available</th>
                                 <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Price</th>
+                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-b border-gray-200 dark:border-gray-700">
                                 <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800 sm:px-6 sm:py-4">
-                                    Apple MacBook Pro 17"
+                                    <img src="{{ asset('assets/sample_picture.png') }}" alt="Sample pic" class="mx-auto h-30">
                                 </th>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">Silver</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4">Laptop</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">$2999</td>
+                                <td class="px-4 py-2 sm:px-6 sm:py-4">Sedan</td>
+                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4"> Vios 1.3 XLE CVT</td>
+                                <td class="px-4 py-2 sm:px-6 sm:py-4">Toyota</td>
+                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4">5</td>
+                                <td class="px-4 py-2 sm:px-6 sm:py-4">CVT</td>
+                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4"> Yes </td>
+                                <td class="px-4 py-2 sm:px-6 sm:py-4">1,999.00</td>
+                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4"> 
+                                    <span class="inline-block px-3 py-1 text-sm font-semibold text-white bg-yellow-500 rounded-full">
+                                        Ongoing
+                                    </span>
+                                </td>
+
                             </tr>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800 sm:px-6 sm:py-4">
-                                    Microsoft Surface Pro
-                                </th>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">White</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4">Laptop PC</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">$1999</td>
-                            </tr>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800 sm:px-6 sm:py-4">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">Black</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4">Accessories</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">$99</td>
-                            </tr>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800 sm:px-6 sm:py-4">
-                                    Google Pixel Phone
-                                </th>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">Gray</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4">Phone</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">$799</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800 sm:px-6 sm:py-4">
-                                    Apple Watch 5
-                                </th>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">Red</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4">Wearables</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">$999</td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
-                
-                  
-                
 
             </section>
 
@@ -152,12 +133,13 @@
                             <a href="#" class="text-[#0f294c]"><i class="fab fa-github text-2xl"></i></a>
                         </div>
                         <p class="mt-5 text-sm">© 2025, BMP Car Rental. All Rights Reserved</p>
+                        <p>Explore Our Premium Car Brands for Rent
+                            Choose from a Wide Range of Trusted and Automakers.</p>
                     </div>
                 </footer>
 
             </div>
-            <p>Explore Our Premium Car Brands for Rent
-                Choose from a Wide Range of Trusted and Automakers.</p>
+
         </main>
     </div>
 </body>
