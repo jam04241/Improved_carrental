@@ -15,7 +15,14 @@ class GuestController extends Controller
     {
         return view('booking');
     }
-
+    public function process(): View
+    {
+        return view('process');
+    }
+    public function payment(): View
+    {
+        return view('payment');
+    }
     // public function contacts(): View
     // {
     //     return view('guest.contacts');
