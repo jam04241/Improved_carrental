@@ -11,7 +11,7 @@
         @if (Route::has('login'))
         <nav class="flex space-x-8 uppercase font-semibold tracking-wide">
             @auth
-                <a href="{{ route('home') }}" class="hover:text-gray-700">Home</a>
+                <a href="{{ route('/') }}" class="hover:text-gray-700">Home</a>
                 <a href="{{ route('cars') }}" class="hover:text-gray-700">Cars</a>
                 <a href="{{ route('booking') }}" class="hover:text-gray-700">Booking</a>
                 <a href="#" class="hover:text-gray-700">Contacts</a>

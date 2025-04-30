@@ -24,7 +24,7 @@ Route::middleware('guest')->group(function() {
     Route::get('/cars', [GuestController::class, 'cars'])->name('cars');
     Route::get('/booking', [GuestController::class, 'booking'])->name('booking');
     Route::get('/contacts', [GuestController::class, 'contacts'])->name('contacts');
-    Route::get('/process', [GuestController::class, 'process'])->name('process');
+    Route::get('/terms_condition', [GuestController::class, 'terms_condition'])->name('terms_condition');
     Route::get('/payment', [GuestController::class, 'payment'])->name('payment');
 });
 

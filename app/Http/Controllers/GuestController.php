@@ -23,6 +23,10 @@ class GuestController extends Controller
     {
         return view('payment');
     }
+    public function terms_condition(): View
+    {
+        return view('terms_condition');
+    }
     // public function contacts(): View
     // {
     //     return view('guest.contacts');

@@ -136,7 +136,7 @@
 
                 <div class="flex flex-row gap-4 py-12 bg-white text-black max-w-6xl mx-auto">
                     <div class="flex flex-row">
-                        <img src="{{ asset('assets/body2/car/mercedes.png') }}" alt="Mercedes" class="h-auto">
+                        <img src="{{ asset('assets/body2/car/mercedes.png') }}" alt="Mercedes" class="h-auto object-contain">
 
                     </div>
 

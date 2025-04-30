@@ -12,7 +12,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 
 
@@ -30,54 +30,104 @@
             <!-- Hero Section -->
             <!-- FIRST CONTAINER -->
 
-            <section class="relative bg-[#0f1021] text-white py-10 text-center">
+            <section class="relative bg-[#0f1021] text-white py-10 mx-auto text-center">
                 <div class="py-10">
-                    <p class="text-7xl font-bold">
+                    <p class="text-4xl md:text-6xl font-bold mb-4">
                         BOOKING STATUS
                     </p>
-    
+
                     <p class="text-xl">
                         Track the current state of your car rental, from pending confirmation to completion.
                     </p>
                 </div>
 
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-30">
-                    <table class="min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3"> </th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Car Type</th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Car Model</th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Brand</th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Seat Capacity</th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Car Transmission  </th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Available</th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Price</th>
-                                <th scope="col" class="px-4 py-2 sm:px-6 sm:py-3">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800 sm:px-6 sm:py-4">
-                                    <img src="{{ asset('assets/sample_picture.png') }}" alt="Sample pic" class="mx-auto h-30">
-                                </th>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">Sedan</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4"> Vios 1.3 XLE CVT</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">Toyota</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4">5</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">CVT</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4"> Yes </td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4">1,999.00</td>
-                                <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 sm:px-6 sm:py-4"> 
-                                    <span class="inline-block px-3 py-1 text-sm font-semibold text-white bg-yellow-500 rounded-full">
-                                        Ongoing
-                                    </span>
-                                </td>
+                <!-- Search Bar and Filter Controls -->
+                <div class="flex flex-col gap-6 md:flex-row md:gap-40 justify-center items-center mb-8 px-4 text-white">
+                    <form class="max-w-lg mx-auto">
+                        <div class="flex">
+                            <label for="search-dropdown"
+                                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
+                                Email</label>
+                            <button id="dropdown-button" data-dropdown-toggle="dropdown"
+                                class="shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+                                type="button">All status <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg></button>
+                            <div id="dropdown"
+                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="dropdown-button">
+                                    <li>
+                                        <button type="button"
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ongoing</button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Due</button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penalty</button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Returned</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="relative w-400">
+                                <input type="search" id="search-dropdown"
+                                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                    placeholder="Search Car Model, Type, Avaiable..." required />
+                                <button type="submit"
+                                    class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    </svg>
+                                    <span class="sr-only">Search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-                            </tr>
 
-                        </tbody>
-                    </table>
+
+                <div
+                    class="max-w-2xl mx-auto bg-[#f9f9f9] border border-gray-200 rounded-lg shadow flex flex-col md:flex-row overflow-hidden">
+                    <img class="w-full h-48 object-contain md:w-1/3 md:h-auto rounded-lg"
+                        src="{{ asset('assets/sample_picture.png') }}" alt="Sample pic" />
+
+                    <div class="flex flex-col justify-between p-6 md:w-2/3 text-left">
+                        <div>
+                            <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900">
+                                Toyota - Vios 1.3 XLE CVT
+                            </h5>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 text-sm">
+                                <p><span class="font-semibold">Car Type:</span> Sedan</p>
+                                <p><span class="font-semibold">Seat Capacity:</span> 5</p>
+                                <p><span class="font-semibold">Transmission:</span> CVT</p>
+                                <p><span class="font-semibold">Available:</span> Yes</p>
+                                <p><span class="font-semibold">Price:</span> ₱1,999.00</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <span
+                                class="inline-block px-4 py-2 text-sm font-semibold text-white bg-yellow-500 rounded-full w-fit">
+                                Ongoing
+                            </span>
+
+                            <button type="submit"
+                                class="px-6 py-2 bg-red-600 text-white text-base font-semibold rounded-lg hover:bg-red-700 transition duration-200 w-full sm:w-auto">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
             </section>

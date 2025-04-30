@@ -40,57 +40,83 @@
                         Track the current state of your car rental, from pending confirmation to completion.
                     </p> --}}
                 </div>
-                <div class="flex flex-col md:flex-row justify-center items-start gap-5 p-10 bg-gray-50 min-h-screen mx-40">
+                <div class="flex flex-col mx-70 md:mx-40 flex-row items-start gap-5 p-10 bg-gray-50 min-h-screen">
 
                     <!-- Left Side: Booking Summary -->
-                    <div class="w-full md:w-1/2 bg-white shadow-md rounded-lg p-8">
+                    <div class="w-full md:w-1/2 bg-white shadow-md rounded-lg p-8 text-left">
                         <h2 class="text-2xl font-bold text-[#0f294c] mb-6">Booking Summary</h2>
 
-                        <div class="flex justify-between mb-4">
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-800">Car Details</h3>
+                        <div class="mb-4">
+                            <div class="text-lg">
+                                <h3 class="text-xl font-semibold text-gray-800">Car Details</h3>
                                 <img src="{{ asset('assets/sample_picture.png') }}" alt="Car Image"
-                                    class="w-32 h-32 object-cover rounded-md mb-4">
-                                <p class="text-sm text-gray-600">Car Model: <span class="font-medium">Toyota Vios</span>
+                                    class="w-80 h-80 object-contain rounded-md justify-center">
+                                <p class=" text-gray-600">Car Model: <span class="font-medium">Toyota Vios</span>
                                 </p>
-                                <p class="text-sm text-gray-600">Rental Period: <span class="font-medium">April 30 - May
-                                        5</span></p>
+                                <p class="text-gray-600">Rental Period: <span class="font-medium">April 30 - May
+                                        5</span>
+                                </p>
                             </div>
-                            <button
-                                class="bg-[#0f294c] text-white px-4 py-2 rounded-md text-sm hover:bg-[#092136]">Edit</button>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div class="flex justify-between">
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-800">Payment Details</h3>
-                                <p class="text-sm text-gray-600">Total Amount:</p>
-                            </div>
-                            <p class="text-xl font-bold text-[#0f294c]">$250.00</p>
                         </div>
                     </div>
+
 
                     <!-- Right Side: Payment Section -->
+                    <!-- Payment Method Section -->
                     <div class="w-full md:w-1/2 bg-white shadow-md rounded-lg p-8">
-                        <h2 class="text-2xl font-bold text-[#0f294c] mb-6">Payment Method</h2>
+                        <!-- Centered Payment Banner -->
+                        <img src="{{ asset('assets/payment_method.png') }}" alt="Payment Logo"
+                            class="w-24 h-24 object-contain mx-auto mb-4">
 
-                        <div class="space-y-4">
-                            <input type="email" placeholder="Email"
-                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c] focus:bg-white">
-                            <input type="text" placeholder="Card Information"
-                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c] focus:bg-white">
-                            <input type="text" placeholder="Name on Card"
-                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c] focus:bg-white">
-                            <input type="text" placeholder="Country or Region"
-                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c] focus:bg-white">
-                        </div>
+                        <h2 class="text-2xl font-bold text-[#0f294c] mb-6 text-center">Payment Method</h2>
 
-                        <button
-                            class="w-full mt-6 bg-[#0f294c] text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-[#092136]">
-                            Pay
-                        </button>
+                        <form class="space-y-4">
+                            <!-- Option 1: Credit/Debit Card -->
+                            <label
+                                class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-[#0f294c] cursor-pointer transition-all">
+                                <input type="radio" name="payment" class="accent-[#0f294c]">
+                                <p class="font-medium text-gray-800 flex-1">Credit or Debit Card</p>
+                                <div class="flex gap-2 items-center">
+                                    <img src="{{ asset('assets/bmp_logo.png') }}" class="w-6 h-6 object-contain" alt="Visa">
+                                    <img src="{{ asset('assets/bmp_logo.png') }}" class="w-6 h-6 object-contain" alt="MasterCard">
+                                    <img src="{{ asset('assets/bmp_logo.png') }}" class="w-6 h-6 object-contain" alt="AmEx">
+                                    <img src="{{ asset('assets/bmp_logo.png') }}" class="w-6 h-6 object-contain" alt="Discover">
+                                </div>
+                                
+                            </label>
+
+                            <!-- Option 2: Click to Pay -->
+                            <label
+                                class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-[#0f294c] cursor-pointer transition-all">
+                                <input type="radio" name="payment" class="accent-[#0f294c]">
+                                <p class="font-medium text-gray-800 flex-1">Click to Pay</p>
+                                <img src="{{ asset('assets/bmp_logo.png') }}" class="w-6 h-6 object-contain" alt="Click to Pay">
+                            </label>
+
+                            <!-- Option 3: PayPal -->
+                            <label
+                                class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-[#0f294c] cursor-pointer transition-all">
+                                <input type="radio" name="payment" class="accent-[#0f294c]">
+                                <p class="font-medium text-gray-800 flex-1">PayPal</p>
+                                <img src="{{ asset('assets/bmp_logo.png') }}" class="w-6 h-6 object-contain" alt="PayPal">
+                            </label>
+
+                            <!-- Total -->
+                            <div class="pt-6 border-t mt-6">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-gray-700 font-medium text-lg">Total Amount:</p>
+                                    <p class="text-xl font-bold text-[#0f294c]">$250.00</p>
+                                </div>
+                            </div>
+
+                            <!-- Pay Button -->
+                            <button type="submit"
+                                class="w-full mt-6 bg-[#0f294c] text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-[#092136] transition">
+                                Continue to Contact
+                            </button>
+                        </form>
                     </div>
+
 
                 </div>
 
