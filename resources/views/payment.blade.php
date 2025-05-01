@@ -64,35 +64,6 @@
                                 </div>
                             </div>
 
-
-                            <h1 class="text-4xl font-bold text-[#0f294c] mb-6 text-center">Customer Summary</h1>
-                            <div class="bg-[#d9d9d9] rounded-lg p-6 mb-6">
-                                <div class="secondgroup mb-6">
-                                    <h3 class="text-xl font-semibold text-gray-800">Customer details</h3>
-                                    <img src="{{ asset('assets/shelby.jpg') }}" alt="Car Image"
-                                        class="w-60 h-60 object-contain rounded-md mt-6">
-                                    <div class="mt-4">
-                                        <p class=" text-gray-600">Name: <span class="font-medium">Michael Shelby</span>
-                                        </p>
-                                        <p class=" text-gray-600">Licencse No.: <span class="font-medium">L0 23
-                                                325421</span>
-                                        </p>
-                                        <p class="text-gray-600">Licencse Exp: <span
-                                                class="font-medium">01/01/2025</span>
-                                        </p>
-                                        <p class=" text-gray-600">Phone number: <span class="font-medium">0912 343
-                                                5432</span>
-                                        </p>
-                                        <p class="text-gray-600">Address: <span class="font-medium">Purok 1, Pogi St.,
-                                                Davao
-                                                City</span>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
                         </div>
                     </div>
 
@@ -100,6 +71,50 @@
                     <!-- Right Side: Payment Section -->
                     <!-- Payment Method Section -->
                     <div class="w-full md:w-1/2 bg-white shadow-md rounded-lg p-8">
+                        <h1 class="text-4xl font-bold text-[#0f294c] mb-6 text-center">Details</h1>
+                        <div class="bg-[#d9d9d9] rounded-lg p-6 mb-6 text-left">
+                            <div class="secondgroup mb-6">
+                                <h3 class="text-xl font-semibold text-gray-800">Customer details</h3>
+                                <div class="mt-4 space-y-3">
+                                    <div>
+                                        <label class="text-gray-600 block">Name:</label>
+                                        <input type="text" value="Michael Shelby"
+                                            class="w-full md:w-80 bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0f294c]"
+                                            readonly>
+                                    </div>
+
+                                    <div>
+                                        <label class="text-gray-600 block">License No.:</label>
+                                        <input type="text" value="L0 23 325421"
+                                            class="w-full md:w-80 bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0f294c]"
+                                            readonly>
+                                    </div>
+
+                                    <div>
+                                        <label class="text-gray-600 block">License Exp:</label>
+                                        <input type="date" value="2025-01-01"
+                                            class="w-full md:w-80 bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0f294c]"
+                                            readonly>
+                                    </div>
+
+                                    <div>
+                                        <label class="text-gray-600 block">Phone Number:</label>
+                                        <input type="text" value="0912 343 5432"
+                                            class="w-full md:w-80 bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0f294c]"
+                                            readonly>
+                                    </div>
+
+                                    <div>
+                                        <label class="text-gray-600 block">Address:</label>
+                                        <input type="text" value="Purok 1, Pogi St., Davao City"
+                                            class="w-full md:w-80 bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0f294c]"
+                                            readonly>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
                         <!-- Centered Payment Banner -->
                         <div class="bg-[#d9d9d9] rounded-lg p-6 mb-6">
                             <img src="{{ asset('assets/payment_method.png') }}" alt="Payment Logo"
@@ -107,73 +122,143 @@
 
                             <h2 class="text-2xl font-bold text-[#0f294c] mb-6 text-center">Payment Method</h2>
 
-                            <form class="space-y-4">
-                                <!-- Option 1: Credit/Debit Card -->
-                                <label
-                                    class="flex items-center p-4 border border-gray-300 rounded-lg hover:border-[#0f294c] cursor-pointer transition-all">
-                                    <div class="flex items-center gap-3 flex-1">
-                                        <input type="radio" name="payment" class="accent-[#0f294c]">
-                                        <p class="font-medium text-gray-800">Credit or Debit Card</p>
-                                    </div>
-                                    <div class="flex gap-2 items-center">
-                                        <img src="{{ asset('assets/payment_methods/visa.png') }}"
-                                            class="w-6 h-6 object-contain" alt="Visa">
-                                        <img src="{{ asset('assets/payment_methods/mastercard.png') }}"
-                                            class="w-6 h-6 object-contain" alt="MasterCard">
-                                        <img src="{{ asset('assets/payment_methods/bdo.jpg') }}"
-                                            class="w-6 h-6 object-contain" alt="BDO">
-                                        <img src="{{ asset('assets/payment_methods/bpi.png') }}"
-                                            class="w-6 h-6 object-contain" alt="BPI">
-                                    </div>
-                                </label>
+                            <!-- Include Alpine.js (place this in your <head> if not already included) -->
+                            <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-                                <!-- Option 2: E-wallet -->
+                            <form class="space-y-4 text-black" x-data="{ paymentMethod: '' }">
+                                <!-- Option 1: E-wallet -->
                                 <label
                                     class="flex items-center p-4 border border-gray-300 rounded-lg hover:border-[#0f294c] cursor-pointer transition-all">
                                     <div class="flex items-center gap-3 flex-1">
-                                        <input type="radio" name="payment" class="accent-[#0f294c]">
+                                        <input type="radio" name="payment" value="ewallet" x-model="paymentMethod"
+                                            class="accent-[#0f294c]">
                                         <p class="font-medium text-gray-800">E-wallet</p>
                                     </div>
                                     <div class="flex gap-2 items-center">
-                                        <img src="{{ asset('assets/payment_methods/visa.png') }}"
-                                            class="w-6 h-6 object-contain" alt="Visa">
+                                        <img src="{{ asset('assets/payment_methods/paypal.png') }}"
+                                            class="w-6 h-6 object-contain" alt="paypal">
                                         <img src="{{ asset('assets/payment_methods/gcash.png') }}"
                                             class="w-6 h-6 object-contain" alt="Gcash">
                                         <img src="{{ asset('assets/payment_methods/paymaya.png') }}"
                                             class="w-6 h-6 object-contain" alt="Paymaya">
+                                        <img src="{{ asset('assets/payment_methods/cliqq.png') }}"
+                                            class="w-6 h-6 object-contain" alt="Cliqq">
+                                        <img src="{{ asset('assets/payment_methods/coinPH.jpg') }}"
+                                            class="w-6 h-6 object-contain" alt="coinPH">
+                                            <img src="{{ asset('assets/payment_methods/billease.png') }}"
+                                            class="w-6 h-6 object-contain" alt="billease">
                                     </div>
                                 </label>
 
-                                <!-- Option 3: Cash -->
+                                <!-- E-wallet Extra Fields -->
+                                <div class="space-y-3" x-show="paymentMethod === 'ewallet'" x-transition>
+                                    <div class="text-left">
+                                        <div>
+                                            <label class="block text-sm text-gray-600 text-left">Select
+                                                E-Wallet:</label>
+                                            <select
+                                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c]">
+                                                <option value="">-- Select E-wallet --</option>
+                                                <option>Gcash</option>
+                                                <option>Paymaya</option>
+                                                <option>PayPal</option>
+                                                <option>7-Eleven Cliqq</option>
+                                                <option>Coins.ph</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600">Ref No.</label>
+                                            <input id="e-wallet-ref"
+                                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c]" />
+                                            <!-- hidden input to store the reference number -->
+                                            <script>
+                                                document.addEventListener('DOMContentLoaded', function () {
+                                                    const ref = '5642' + Math.random().toString(36).substring(2, 10).toUpperCase();
+                                                    document.getElementById('e-wallet-ref').value = ref;
+                                                });
+                                            </script>
+                                            <p class="text-sm text-gray-600 mt-2 text-center mb-3">Note: Input here the
+                                                reference number according to your E-wallet you select.</p>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600">Account Name:</label>
+                                            <input type="text"
+                                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c]"
+                                                placeholder="Enter Account Name">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600">Account Number:</label>
+                                            <input type="text"
+                                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c]"
+                                                placeholder="Enter Account Number">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600">Amount:</label>
+                                            <input type="number"
+                                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c]"
+                                                placeholder="Enter Amount">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 2: Cash -->
                                 <label
                                     class="flex items-center p-4 border border-gray-300 rounded-lg hover:border-[#0f294c] cursor-pointer transition-all">
                                     <div class="flex items-center gap-3 flex-1">
-                                        <input type="radio" name="payment" class="accent-[#0f294c]">
+                                        <input type="radio" name="payment" value="cash" x-model="paymentMethod"
+                                            class="accent-[#0f294c]">
                                         <p class="font-medium text-gray-800">Cash</p>
                                     </div>
                                     <img src="{{ asset('assets/payment_methods/money.png') }}"
                                         class="w-6 h-6 object-contain" alt="Cash">
                                 </label>
 
-                                <!-- Total -->
-                                <div class="pt-6 border-t mt-6">
+                                <!-- Cash Extra Fields -->
+                                <div class="space-y-3" x-show="paymentMethod === 'cash'" x-transition>
+                                    <div>
+                                        <label class="block text-sm text-gray-600 text-left">Select Branch:</label>
+                                        <select
+                                            class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c]">
+                                            <option value="">-- Select a Branch --</option>
+                                            <option>Mintal Branch</option>
+                                            <option>Ula Branch</option>
+                                            <option>Mudiang Branch</option>
+                                        </select>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-2">Note: Go to the selected branch and you will
+                                        pay the amount refer below.</p>
+                                </div>
+                                <div class="pt-6 border-t mt-6 space-y-4">
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Payment Summary</h3>
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-gray-700 font-medium text-lg">Rental Fee:</p>
+                                        <p class="text-xl font-bold text-[#0f294c]">$2000.00</p>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-gray-700 font-medium text-lg">Booking Fee:</p>
+                                        <p class="text-xl font-bold text-[#0f294c]">$500.00</p>
+                                    </div>
                                     <div class="flex justify-between items-center">
                                         <p class="text-gray-700 font-medium text-lg">Total Amount:</p>
                                         <p class="text-xl font-bold text-[#0f294c]">$2500.00</p>
                                     </div>
-                                    <div class="flex justify-between items-center mt-5 text-black">
-                                        <p class="text-gray-700 font-medium text-lg">To pay</p>
-                                        <input type="text" placeholder="Enter amount"
-                                            class="w-40 bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c] focus:bg-white text-center">
+                                    <div class="mt-4 flex items-center">
+                                        <input type="checkbox" id="agreement" class="mr-2">
+                                        <label for="agreement" class="text-sm text-gray-600">
+                                            I agree to the <a href="{{route('terms_condition')}}"
+                                                class="text-[#0f294c] font-semibold">Terms and Conditions</a> of the Bmp
+                                            Car Rental.
+                                        </label>
                                     </div>
                                 </div>
 
                                 <!-- Submit -->
                                 <button type="submit"
                                     class="w-full mt-6 bg-[#0f294c] text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-[#092136] transition">
-                                    Pay Now
+                                    Book Now
                                 </button>
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -241,6 +326,13 @@
 
         </main>
     </div>
+    <!-- GENERATE REF NO,-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ref = 'REF-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+            document.getElementById('referenceNumber').value = ref;
+        });
+    </script>
 </body>
 
 </html>
