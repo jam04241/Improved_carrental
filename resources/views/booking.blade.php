@@ -96,7 +96,7 @@
                 </div>
 
 
-
+                <!-- Booking Status Card -->
                 <div
                     class="max-w-2xl mx-auto bg-[#f9f9f9] border border-gray-200 rounded-lg shadow flex flex-col md:flex-row overflow-hidden">
                     <img class="w-full h-48 object-contain md:w-1/3 md:h-auto rounded-lg"
@@ -112,6 +112,8 @@
                                 <p><span class="font-semibold">Seat Capacity:</span> 5</p>
                                 <p><span class="font-semibold">Transmission:</span> CVT</p>
                                 <p><span class="font-semibold">Available:</span> Yes</p>
+                                <p><span class="font-semibold">Pickup Date:</span> 01/01/2025</p>
+                                <p><span class="font-semibold">Return Date:</span> 01/02/2025</p>
                                 <p><span class="font-semibold">Price:</span> ₱1,999.00</p>
                             </div>
                         </div>
