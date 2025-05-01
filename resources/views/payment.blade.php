@@ -153,19 +153,50 @@
                                 <!-- E-wallet Extra Fields -->
                                 <div class="space-y-3" x-show="paymentMethod === 'ewallet'" x-transition>
                                     <div class="text-left">
-                                        <div>
-                                            <label class="block text-sm text-gray-600 text-left">Select
-                                                E-Wallet:</label>
-                                            <select
-                                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-[#0f294c]">
-                                                <option value="">-- Select E-wallet --</option>
-                                                <option>Gcash</option>
-                                                <option>Paymaya</option>
-                                                <option>PayPal</option>
-                                                <option>7-Eleven Cliqq</option>
-                                                <option>Coins.ph</option>
-                                            </select>
+                                        <div x-data="{ open: false, selected: null, wallets: [
+                                            { name: 'Gcash', icon: '{{ asset('assets/payment_methods/gcash.png') }}' },
+                                            { name: 'Paymaya', icon: '{{ asset('assets/payment_methods/paymaya.png') }}' },
+                                            { name: 'PayPal', icon: '{{ asset('assets/payment_methods/paypal.png') }}' },
+                                            { name: '7-Eleven Cliqq', icon: '{{ asset('assets/payment_methods/cliqq.png') }}' },
+                                            { name: 'Coins.ph', icon: '{{ asset('assets/payment_methods/coinPH.jpg') }}' },
+                                            { name: 'Billease', icon: '{{ asset('assets/payment_methods/billease.png') }}' }
+                                        ] }" class="relative w-full">
+                                            <label class="block text-sm text-gray-600 text-left mb-1">Select E-Wallet:</label>
+                                        
+                                            <!-- Dropdown Button -->
+                                            <button @click="open = !open" type="button"
+                                                class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 flex items-center justify-between focus:ring-2 focus:ring-[#0f294c]">
+                                                <template x-if="selected">
+                                                    <div class="flex items-center gap-2">
+                                                        <img :src="selected.icon" class="w-5 h-5 object-contain" />
+                                                        <span x-text="selected.name"></span>
+                                                    </div>
+                                                </template>
+                                                <template x-if="!selected">
+                                                    <span class="text-gray-400">-- Select E-wallet --</span>
+                                                </template>
+                                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        
+                                            <!-- Dropdown List -->
+                                            <ul x-show="open" @click.away="open = false"
+                                                class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto">
+                                                <template x-for="wallet in wallets" :key="wallet.name">
+                                                    <li @click="selected = wallet; open = false"
+                                                        class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                                        <img :src="wallet.icon" class="w-5 h-5 object-contain" />
+                                                        <span x-text="wallet.name"></span>
+                                                    </li>
+                                                </template>
+                                            </ul>
+                                        
+                                            <!-- Hidden input for form submission -->
+                                            {{-- <input type="hidden" name="e_wallet" :value="selected ? selected.name : ''"> --}}
                                         </div>
+                                        
                                         <div>
                                             <label class="block text-sm text-gray-600">Ref No.</label>
                                             <input id="e-wallet-ref"
