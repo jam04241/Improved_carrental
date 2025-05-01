@@ -47,7 +47,7 @@
                 <div class="flex flex-col gap-6 md:flex-row md:gap-40 justify-center items-center mb-8 px-4 text-white">
                     <form class="max-w-lg mx-auto" x-data="{ open: false, selected: 'All status' }">
                         <div class="flex">
-                           
+
                             <!-- Search Input -->
                             <div class="relative w-400">
                                 <input type="search" id="search-dropdown"
@@ -96,16 +96,128 @@
                                 Pending
                             </span>
 
-                            <button type="submit"
-                                class="px-6 py-2 bg-red-600 text-white text-base font-semibold rounded-lg hover:bg-red-700 transition duration-200 w-full sm:w-auto">
+                            <div data-modal-target="cancel-modal" data-modal-toggle="cancel-modal"
+                                class="flex items-center gap-2 px-4 py-2 text-sm text-white bg-red-600 rounded-md shadow hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 cursor-pointer transition mx-2 my-1">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />
+                                </svg>
                                 Cancel
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </section>
 
+            <!-- Cancel Modal -->
+            <div id="cancel-modal" tabindex="-1" aria-hidden="true"
+                class="hidden fixed inset-0 z-50 flex justify-center items-center overflow-y-auto">
+
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-4xl mx-auto transform transition-all overflow-hidden">
+
+                    <!-- Header -->
+                    <div class="flex items-center justify-between px-6 py-4 border-b dark:border-gray-700">
+                        <h5 class="text-xl font-semibold text-gray-800 dark:text-white">
+                            Reason for Cancellation
+                        </h5>
+                        <button data-modal-hide="cancel-modal" type="button"
+                            class="text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2 transition">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- CANCELATION MODAL -->
+                    <div class="px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Textarea Column -->
+                        <div>
+                            <label for="cancel-reason"
+                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Please explain your reason for cancellation:
+                            </label>
+                            <textarea id="cancel-reason" rows="6" required
+                                class="w-full px-4 py-3 h-48 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+                                placeholder="Enter your reason here..."></textarea>
+                        </div>
+
+                        <!-- Suggested Reasons -->
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-inner overflow-y-auto max-h-60">
+                            <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">Common Reasons:</p>
+                            <ul class="space-y-2">
+                                <li>
+                                    <button
+                                        class="suggest-btn w-full text-left text-sm text-gray-800 dark:text-white bg-white dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-600 rounded-lg px-4 py-2 transition"
+                                        data-reason="Change of travel plans">
+                                        • Change of travel plans
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="suggest-btn w-full text-left text-sm text-gray-800 dark:text-white bg-white dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-600 rounded-lg px-4 py-2 transition"
+                                        data-reason="Found a better deal elsewhere">
+                                        • Found a better deal
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="suggest-btn w-full text-left text-sm text-gray-800 dark:text-white bg-white dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-600 rounded-lg px-4 py-2 transition"
+                                        data-reason="No longer need the vehicle">
+                                        • Vehicle no longer needed
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="suggest-btn w-full text-left text-sm text-gray-800 dark:text-white bg-white dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-600 rounded-lg px-4 py-2 transition"
+                                        data-reason="Booking was made by mistake">
+                                        • Booking mistake
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="suggest-btn w-full text-left text-sm text-gray-800 dark:text-white bg-white dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-600 rounded-lg px-4 py-2 transition"
+                                        data-reason="Emergency or unforeseen circumstance">
+                                        • Emergency or unforeseen circumstances
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="px-6">
+                        <label class="flex items-center text-sm text-gray-200 mb-3">
+                            <input type="checkbox" id="confirm-cancel"
+                                class="form-checkbox h-4 w-4 text-blue-600 transition" required>
+                            <span class="ms-2">I confirm that I understand and agree to proceed with the cancellation of
+                                my
+                                booking.</span>
+                        </label>
+                    </div>
+                    <!-- Footer -->
+                    <div
+                        class="flex justify-end gap-3 px-6 py-2 border-t dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-b-2xl">
+                        <button data-modal-hide="cancel-modal" type="submit"
+                            class="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg transition">
+                            Submit Reason
+                        </button>
+                        <button data-modal-hide="cancel-modal" type="button"
+                            class="px-5 py-2.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 text-sm font-medium rounded-lg transition">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.querySelectorAll('.suggest-btn').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const reason = button.getAttribute('data-reason');
+                        document.getElementById('cancel-reason').value = reason;
+                    });
+                });
+            </script>
 
             <!-- footer -->
             <div class="flex flex-col min-h-auto bg-white">
