@@ -45,8 +45,6 @@ During the development of this project, the following resources were invaluable:
 -   **[Laravel Documentation](https://laravel.com/docs/12.x)**: The official and comprehensive Laravel documentation.
 -   **[Laravel Bootcamp](https://bootcamp.laravel.com)**: A guided tutorial for building a modern Laravel application.
 -   **[Laracasts](https://laracasts.com)**: A vast library of video tutorials on Laravel, PHP, and related technologies.
--   **[Tailwind](https://tailwindcss.com/)**: A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
--   **[Tailwind Flowbite](https://flowbite.com/docs/getting-started/introduction/)**: Flowbite is an open-source library of UI components based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, templates, and more.
 
 ## Contributing
 
