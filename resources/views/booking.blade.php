@@ -61,19 +61,31 @@
                                     aria-labelledby="dropdown-button">
                                     <li>
                                         <button type="button"
-                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ongoing</button>
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pending</button>
                                     </li>
                                     <li>
                                         <button type="button"
-                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Due</button>
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">For Payment</button>
                                     </li>
                                     <li>
                                         <button type="button"
-                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penalty</button>
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Approved</button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">In Use</button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overdue</button>
                                     </li>
                                     <li>
                                         <button type="button"
                                             class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Returned</button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Damaged</button>
                                     </li>
                                 </ul>
                             </div>
@@ -121,7 +133,7 @@
                         <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                             <span
                                 class="inline-block px-4 py-2 text-sm font-semibold text-white bg-yellow-500 rounded-full w-fit">
-                                Ongoing
+                                Pending
                             </span>
 
                             <button type="submit"
